@@ -1,9 +1,9 @@
 # data-science-bootcamp-8
-My data portfolio for data analyst role
+My data portfolio for the role of data analyst.
 
-## What did I learn from this bootcamp
+## What did I take away from this bootcamp
 
-I learned a lot of data science skills. This bootcamp has 10 sprints as
+I learned a lot of about data science skills. This bootcamp includes 10 sprints as
 
 - Intro to data science
 - Spreadsheet

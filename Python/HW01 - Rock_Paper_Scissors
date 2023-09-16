@@ -1,1 +1,54 @@
-
+import random as rand
+def game():
+  win = 0
+  loss = 0
+  draw = 0
+  actions = ["Rock", "Paper", "Scissors"]
+  print("Hello, welcome to 'Rock Paper Scissor Game'. The simple game in everyone childhood.")
+  print("Let's recap the rule. The '>' represents 'beat'.")
+  print("Rock > Scissors")
+  print("Scissors > Paper")
+  print("Paper > Rock")
+  print("Sounds easy?, you know the rule clearly right now. Are you ready? Type 'Y' to start, or 'N' to exit the game.")
+  player_response = input()
+  if player_response == "Y":
+    while True:
+      print("You can choose your action by type 'Rock', 'Paper', or 'Scissors' as you need.")
+      print("In case you want to quit the game, type 'Q'.")
+      computer_turn = rand.choice(actions)
+      player_turn = input("Rock...Paper...Scissors!!: ")
+      if player_turn == computer_turn:
+          print("The result is: 'Draw!'")
+          draw += 1
+      elif player_turn == "Rock" and computer_turn == "Paper":
+          print("The result is: 'Loss!'")
+          loss += 1
+      elif player_turn == "Rock" and computer_turn == "Scissors":
+          print("The result is: 'Win!'")
+          win += 1
+      elif player_turn == "Paper" and computer_turn == "Scissors":
+          print("The result is: 'Loss!'")
+          loss += 1
+      elif player_turn == "Paper" and computer_turn == "Rock":
+          print("The result is: 'Win!'")
+          win += 1
+      elif player_turn == "Scissors" and computer_turn == "Rock":
+          print("The result is: 'Loss!'")
+          loss += 1
+      elif player_turn == "Scissors" and computer_turn == "Paper":
+          print("The result is: 'Win!'")
+          win += 1
+      elif player_turn == "Q":
+          print("This is your result:")
+          print(f"Win: {win} , Loss: {loss}, Draw: {draw}")
+          print("Thank you for playing! Have a nice day!")
+          break
+      else:
+          print("Sorry! Try again.")
+  elif player_response == "N":
+    print("Thank you for playing! Have a nice day!")
+  else:
+    print("404 ERROR NOT FOUND.")
+    print("Sorry! Please refresh the game again.")
+    
+game()

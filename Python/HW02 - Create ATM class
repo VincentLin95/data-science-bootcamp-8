@@ -1,0 +1,89 @@
+# class ATM
+import random as rand
+class ATM:
+    def __init__(self, name, number, bank, branch, balance):
+        self.name = name
+        self.number = number
+        self.bank = bank
+        self.branch = branch
+        self.balance = balance
+# 1st method - deposit
+    def deposit(self, amount):
+        self.amount = amount
+        print("Good day, do you want to confirm your deposit request?")
+        print("Type 'Y' for deposit some money, type 'N' for back to main menu")
+        dep_req = input()
+        if dep_req == 'Y':
+            self.balance += amount
+            print(f"Your deposit balance is: {self.amount} Baht")
+            print(f"Your total balance is: {self.balance} Baht")
+            print("Thank you. Have a nice day.")
+        elif dep_req == 'N':
+            print("Thank you. The system will bring you back to main menu.")
+        else:
+            print("404 NOT FOUND ERROR, plaese refresh the banking system again.")
+
+# 2nd method - withdraw
+    def withdraw(self, amount):
+        self.amount = amount
+        if self.amount > self.balance:
+            print("Sorry, your withdraw request was cancelled automatically because your balance wasn't enough to withdraw.")
+        else:
+            print("Good day, do you want to confirm your withdraw request?")
+            print("Type 'Y' for withdraw some money, type 'N' for back to main menu")
+            wit_req = input()
+            if wit_req == 'Y':
+                self.balance -= amount
+                print(f"Your withdraw balance is: {self.amount} Baht")
+                print(f"Your total balance is: {self.balance} Baht")
+                print("Thank you. Have a nice day.")
+            elif wit_req == 'N':
+                print("Thank you. The system will bring you back to main menu.")
+            else:
+                print("404 NOT FOUND ERROR, plaese refresh the banking system again.")
+
+# 3rd method - transfer to other account
+    def transfer(self, amount):
+        self.amount = amount
+        if self.amount > self.balance:
+            print("Sorry, your transfer request was cancelled automatically because your balance wasn't enough to transfer.")
+        else:
+            print("Good day, do you want to confirm your transfer request?")
+            print("Type 'Y' for transfer some money, type 'N' for back to main menu")
+            tran_req = input()
+            if tran_req == 'Y':
+                self.balance -= amount
+                des_acc = input("Please enter account/PromptPay number: ")
+                print("Pease be careful the scammers or any finanicail frauding.")
+                print("Do you want to confirm your request?. Type 'Y' to confirm, type 'N' to cancel.")
+                des_confirm = input()
+                if des_confirm == 'Y':
+                    print("Transaction successful!.")
+                    print(f"Transfer {self.amount} Baht to {des_acc}.")
+                    print(f"Your total balance is: {self.balance} Baht")
+                    print("Thank you. Have a nice day.")
+                else:
+                    print("Transaction cancelled.")
+            elif tran_req == 'N':
+                print("Thank you. The system will bring you back to main menu.")
+            else:
+                print("404 NOT FOUND ERROR, plaese refresh the banking system again.")
+
+# 4th method - check balance
+    def check(self):
+        print(f"Account name: {self.name}")
+        print(f"Account number: {self.number}, {self.bank} ({self.branch})")
+        print(f"Account balance: {self.balance}")
+
+# 5th method - OTP request
+    def OTP(self):
+        print("Do you want to request OTP? Type 'Y' for next step, type 'N' for cancel.")
+        otp_req = input()
+        if otp_req == 'Y':
+            otp = list(range(0000, 9999))
+            otp_password = rand.choice(otp)
+            print(f"Your OTP password is: {otp_password}")
+        elif otp_req == 'N':
+            print("Thank you. The system will bring you back to main menu.")
+        else:
+            print("404 NOT FOUND ERROR, plaese refresh the banking system again.")
